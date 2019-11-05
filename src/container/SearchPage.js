@@ -7,7 +7,7 @@ export default class SearchPage extends Component {
   state = {
     searchQuery: '',
     artists: [],
-    page: 1
+    page: 0
   }
 
   handleChange = ({ target }) => {
@@ -35,8 +35,8 @@ export default class SearchPage extends Component {
       }
     }, () => {
       callApi(this.state.searchQuery, this.state.page)
-        .then((artistsArray) => {
-          const artists = artistsArray.map(artist => {
+        .then(res => {
+          const artists = res.artists.map(artist => {
             return {
               name: artist.name,
               id: artist.id
@@ -50,8 +50,8 @@ export default class SearchPage extends Component {
   handlePageForward = () => {
     this.setState(state => ({ page: state.page + 1 }), () => {
       callApi(this.state.searchQuery, this.state.page)
-        .then((artistsArray) => {
-          const artists = artistsArray.map(artist => {
+        .then(res => {
+          const artists = res.artists.map(artist => {
             return {
               name: artist.name,
               id: artist.id
