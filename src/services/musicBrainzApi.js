@@ -6,6 +6,7 @@ export const callApi = (searchQuery, page = 0) => {
 
   return fetch(url)
     .then(res => res.json())
+    
     .catch(error => {
       console.log(error);
     });

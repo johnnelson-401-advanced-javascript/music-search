@@ -19,8 +19,8 @@ export default class ReleasePage extends Component {
     page: 0
   }
 
-  componentDidMount() {
-    getRelease(this.props.match.params.id)
+  getReleaseAndCoverArt = () => {
+    getRelease(this.props.match.params.id, this.state.page)
       .then((res) => {
         const releases = res.releases.map(release => {
           const coverArt = 'cover-art-archive';
@@ -34,41 +34,26 @@ export default class ReleasePage extends Component {
       });
   }
 
+  componentDidMount() {
+    this.getReleaseAndCoverArt();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if(prevState.page !== this.state.page) {
+      this.getReleaseAndCoverArt();
+    }
+  }
 
   handlePageBackward = () => {
     this.setState(state => {
-      if(state.page > 1) {
+      if(state.page > 0) {
         return ({ page: state.page - 1 });
       }
-    }, () => {
-      getRelease(this.props.match.params.id, this.state.page)
-        .then((res) => {
-          const releases = res.releases.map(release => {
-            return {
-              title: release.title,
-              imageUrl: `http://coverartarchive.org/release/${release.id}/front`,
-              id: release.id
-            };
-          });
-          this.setState({ releases });
-        });
     });
   }
 
   handlePageForward = () => {
-    this.setState(state => ({ page: state.page + 1 }), () => {
-      getRelease(this.props.match.params.id, this.state.page)
-        .then((res) => {
-          const releases = res.releases.map(release => {
-            return {
-              title: release.title,
-              imageUrl: `http://coverartarchive.org/release/${release.id}/front`,
-              id: release.id
-            };
-          });
-          this.setState({ releases });
-        });
-    });
+    this.setState(state => ({ page: state.page + 1 }));
   }
 
   render() {

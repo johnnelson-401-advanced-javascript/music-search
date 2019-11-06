@@ -14,12 +14,12 @@ export default class SearchPage extends Component {
     this.setState({ [target.name]: target.value });
   }
 
-  handleSubmit = event => {
-    event.preventDefault();
-    callApi(this.state.searchQuery)
+  getArtists = () => {
+    callApi(this.state.searchQuery, this.state.page)
       .then(res => {
         const artists = res.artists.map(artist => {
           return {
+            disamb: artist.disambiguation,
             name: artist.name,
             id: artist.id
           };
@@ -28,38 +28,28 @@ export default class SearchPage extends Component {
       });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if(prevState.page !== this.state.page) {
+      this.getArtists();
+    }
+  }
+
+
+  handleSubmit = event => {
+    event.preventDefault();
+    this.getArtists();
+  }
+
   handlePageBackward = () => {
     this.setState(state => {
-      if(state.page > 1) {
+      if(state.page > 0) {
         return ({ page: state.page - 1 });
       }
-    }, () => {
-      callApi(this.state.searchQuery, this.state.page)
-        .then(res => {
-          const artists = res.artists.map(artist => {
-            return {
-              name: artist.name,
-              id: artist.id
-            };
-          });
-          this.setState({ artists });
-        });
     });
   }
 
   handlePageForward = () => {
-    this.setState(state => ({ page: state.page + 1 }), () => {
-      callApi(this.state.searchQuery, this.state.page)
-        .then(res => {
-          const artists = res.artists.map(artist => {
-            return {
-              name: artist.name,
-              id: artist.id
-            };
-          });
-          this.setState({ artists });
-        });
-    });
+    this.setState(state => ({ page: state.page + 1 }));
   }
 
   render() {

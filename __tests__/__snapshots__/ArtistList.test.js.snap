@@ -1,14 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ArtistList component renders ArtistList 1`] = `
-<ul>
-  <li
-    key="1"
+<Fragment>
+  <button
+    onClick={[Function]}
   >
-    <Artist
-      id="1"
-      name="Luke"
-    />
-  </li>
-</ul>
+    Back
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    Next
+  </button>
+  <ul>
+    <li
+      key="1"
+    >
+      <Artist
+        id="1"
+        name="Luke"
+      />
+    </li>
+  </ul>
+</Fragment>
 `;
