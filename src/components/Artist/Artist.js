@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 export default function Artist({ name, id, disamb }) {
   return (
-    <Link to={`/artist/${id}`}>
+    <Link to={`/artist/${id}/${name}`}>
       <h2>{name}{disamb ? `: ${disamb}` : null}</h2>
     </Link>
   );

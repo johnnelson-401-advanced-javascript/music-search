@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import Release from './Release';
 import styles from './ReleaseList.css';
 
-export default function ReleaseList({ releases }) {
+export default function ReleaseList({ releases, artist }) {
 
   const releaseElements = releases.map(release => (
     <li key={release.id}>
-      <Release title={release.title} imageUrl={release.imageUrl} />
+      <Release artist={artist} title={release.title} imageUrl={release.imageUrl} id={release.id} />
     </li>
   ));
 
@@ -22,5 +22,7 @@ ReleaseList.propTypes = {
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     imageUrl: PropTypes.string.isRequired
-  })).isRequired
+  })).isRequired,
+  artist: PropTypes.string.isRequired,
+
 };

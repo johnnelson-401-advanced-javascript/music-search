@@ -9,7 +9,8 @@ export default class ReleasePage extends Component {
     history: PropTypes.object.isRequired,
     match: PropTypes.shape({
       params: PropTypes.shape({
-        id: PropTypes.string
+        id: PropTypes.string,
+        artist: PropTypes.string
       })
     })
   }
@@ -62,7 +63,7 @@ export default class ReleasePage extends Component {
         <h1>Artist Releases</h1>
         <button onClick={this.handlePageBackward}>Previous</button>
         <button onClick={this.handlePageForward}>Next</button>
-        <ReleaseList releases={this.state.releases} />
+        <ReleaseList releases={this.state.releases} artist={this.props.match.params.artist} />
       </>
     );
 
