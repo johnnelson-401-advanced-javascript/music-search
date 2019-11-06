@@ -7,7 +7,7 @@ export default function ReleaseList({ releases, artist }) {
 
   const releaseElements = releases.map(release => (
     <li key={release.id}>
-      <Release artist={artist} title={release.title} imageUrl={release.imageUrl} id={release.id} />
+      <Release artist={artist} title={release.title} id={release.id} imageUrl={release.imageUrl}/>
     </li>
   ));
 

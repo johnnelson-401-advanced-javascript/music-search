@@ -12,6 +12,6 @@ export default function SongItem({ title, artist }) {
 
 SongItem.propTypes = {
   title: PropTypes.string.isRequired,
-  artist: PropTypes.string.isRequired
+  artist: PropTypes.string.isRequired,
 };
 

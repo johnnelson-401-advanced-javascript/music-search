@@ -17,10 +17,12 @@ export default class ReleasePage extends Component {
 
   state = {
     releases: [],
-    page: 0
+    page: 0,
+    loading: true
   }
 
   getReleaseAndCoverArt = () => {
+    this.setState({ loading: true });
     getRelease(this.props.match.params.id, this.state.page)
       .then((res) => {
         const releases = res.releases.map(release => {
@@ -31,7 +33,7 @@ export default class ReleasePage extends Component {
             id: release.id
           };
         });
-        this.setState({ releases });
+        this.setState({ releases, loading: false });
       });
   }
 
@@ -58,6 +60,8 @@ export default class ReleasePage extends Component {
   }
 
   render() {
+    if(this.state.loading) return <img src='https://loading.io/spinners/music/lg.music-note-preloader.gif'/>;
+
     return (
       <>
         <h1>Artist Releases</h1>

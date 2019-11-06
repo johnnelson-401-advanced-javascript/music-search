@@ -20,7 +20,7 @@ export default function App() {
       <Switch>
         <Route exact path="/" component={SearchPage} />
         <Route path="/artist/:id/:artist" component={ReleasePage} />
-        <Route path="/songs/:id/:artist" component={SongPage} />
+        <Route path="/songs/:id/:artist/" component={SongPage} />
         <Route path="/lyrics/:artist/:title" component={LyricPage}/>
         <Route path="/" component={NotFound} />
       </Switch>

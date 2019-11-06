@@ -7,7 +7,8 @@ export default class SearchPage extends Component {
   state = {
     searchQuery: '',
     artists: [],
-    page: 0
+    page: 0,
+    loading: false
   }
 
   handleChange = ({ target }) => {
@@ -15,6 +16,7 @@ export default class SearchPage extends Component {
   }
 
   getArtists = () => {
+    this.setState({ loading: true });
     callApi(this.state.searchQuery, this.state.page)
       .then(res => {
         const artists = res.artists.map(artist => {
@@ -24,7 +26,7 @@ export default class SearchPage extends Component {
             id: artist.id
           };
         });
-        this.setState({ artists });
+        this.setState({ artists, loading: false });
       });
   }
 
@@ -53,6 +55,8 @@ export default class SearchPage extends Component {
   }
 
   render() {
+    if(this.state.loading) return <img src='https://loading.io/spinners/music/lg.music-note-preloader.gif'/>;
+
     return (
       <>
         <Form

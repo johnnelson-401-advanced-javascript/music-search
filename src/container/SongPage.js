@@ -10,19 +10,21 @@ export default class SongPage extends Component {
     match: PropTypes.shape({
       params: PropTypes.shape({
         id: PropTypes.string,
-        artist: PropTypes.string
+        artist: PropTypes.string,
       })
     })
   }
 
   state = {
     songs: [],
+    loading: true
   }
 
   getSongs = () => {
+    this.setState({ loading: true });
     getSongsApi(this.props.match.params.id)
       .then(({ recordings }) => {
-        this.setState({ songs: recordings.map(recording => {
+        this.setState({ loading: false, songs: recordings.map(recording => {
           return recording.title;
         })
         });
@@ -33,6 +35,9 @@ export default class SongPage extends Component {
     this.getSongs();
   }
   render() {
+
+    if(this.state.loading) return <img src='https://loading.io/spinners/music/lg.music-note-preloader.gif'/>;
+
     return (
       <>
       <SongList songs={this.state.songs} artist={this.props.match.params.artist} />;
