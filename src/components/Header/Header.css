@@ -1,6 +1,15 @@
 .Header { 
   h1{
-    font-family: 'ZCOOL XiaoWei', serif;
-    margin-left: 30px;
+    background: black;
+    color: white;
+    padding: 10px 0px;
+    text-align: center;
+    font-size: 2em;
+  }
+  nav{
+    .Link{
+      
+      text-decoration: none;
+    }
   }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Release from './Release';
+import styles from './ReleaseList.css';
 
 export default function ReleaseList({ releases }) {
 
@@ -11,7 +12,7 @@ export default function ReleaseList({ releases }) {
   ));
 
   return (
-    <ul>
+    <ul className={styles.ReleaseList}>
       {releaseElements}
     </ul>
   );

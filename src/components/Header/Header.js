@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 const Header = () => {
 
   return (
-    <header className={`${styles.Header}`}>
+    <header className={styles.Header}>
       <h1>Music Search</h1>
       <nav>
-        <Link to="/">Artist Search</Link>
+        <Link  to="/">Artist Search</Link>
       </nav>
     </header >
   );

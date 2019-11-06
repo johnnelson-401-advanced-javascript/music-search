@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReleaseDisplay from '../components/Release/ReleaseDisplay';
+import ReleaseList from '../components/Release/ReleaseList';
 import { getRelease } from '../services/musicBrainzApi';
 import PropTypes from 'prop-types';
 
@@ -77,7 +77,7 @@ export default class ReleasePage extends Component {
         <h1>Artist Releases</h1>
         <button onClick={this.handlePageBackward}>Previous</button>
         <button onClick={this.handlePageForward}>Next</button>
-        <ReleaseDisplay releases={this.state.releases} />
+        <ReleaseList releases={this.state.releases} />
       </>
     );
 
