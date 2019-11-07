@@ -10,7 +10,7 @@ import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import NotFound from './NotFound/NotFound';
 import ReleasePage from '../container/ReleasePage';
-import SongPage from '../container/SongPage';
+import SongPage from './hooks/SongPage';
 import LyricPage from '../container/LyricPage';
 
 export default function App() {
