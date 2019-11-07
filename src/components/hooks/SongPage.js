@@ -18,11 +18,6 @@ export default function SongPage({ match }) {
   const [songs, setSongs] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // state = {
-  //   songs: [],
-  //   loading: true
-  // }
-
   const getSongs = () => {
     setLoading(true);
     getSongsApi(match.params.id)

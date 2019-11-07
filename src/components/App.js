@@ -9,7 +9,7 @@ import SearchPage from '../container/SearchPage';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import NotFound from './NotFound/NotFound';
-import ReleasePage from '../container/ReleasePage';
+import ReleasePage from './hooks/ReleasePage';
 import SongPage from './hooks/SongPage';
 import LyricPage from '../container/LyricPage';
 
