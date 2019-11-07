@@ -2,7 +2,7 @@
 
 exports[`Release component renders Release 1`] = `
 <Link
-  to="/songs/undefined/undefined"
+  to="/songs/id/artist"
 >
   <h3>
     Phil

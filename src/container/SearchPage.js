@@ -17,7 +17,7 @@ export default class SearchPage extends Component {
 
   getArtists = () => {
     this.setState({ loading: true });
-    callApi(this.state.searchQuery, this.state.page)
+    return callApi(this.state.searchQuery, this.state.page)
       .then(res => {
         const artists = res.artists.map(artist => {
           return {

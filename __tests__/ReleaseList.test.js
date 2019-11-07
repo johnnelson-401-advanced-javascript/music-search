@@ -9,7 +9,7 @@ describe('ReleaseList component', () => {
       id: '1',
       imageUrl: 'testUrl.com'
     }];
-    const wrapper = shallow(<ReleaseList releases={releases}/>);
+    const wrapper = shallow(<ReleaseList releases={releases} artist='' />);
     expect(wrapper).toMatchSnapshot();
   });
 });
