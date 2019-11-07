@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Release component renders Release 1`] = `
-<Fragment>
+<Link
+  to="/songs/undefined/undefined"
+>
   <h3>
     Phil
   </h3>
@@ -9,5 +11,5 @@ exports[`Release component renders Release 1`] = `
     alt="Phil"
     src="testUrl.com"
   />
-</Fragment>
+</Link>
 `;

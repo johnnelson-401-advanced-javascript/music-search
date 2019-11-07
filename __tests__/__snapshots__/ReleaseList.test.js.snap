@@ -8,6 +8,7 @@ exports[`ReleaseList component renders ReleaseList 1`] = `
     key="1"
   >
     <Release
+      id="1"
       imageUrl="testUrl.com"
       title="Phil"
     />

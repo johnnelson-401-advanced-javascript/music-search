@@ -4,6 +4,7 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
+
 import SearchPage from '../container/SearchPage';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';

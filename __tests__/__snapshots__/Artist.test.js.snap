@@ -2,7 +2,7 @@
 
 exports[`Artist component renders Artist 1`] = `
 <Link
-  to="/artist/2"
+  to="/artist/2/John"
 >
   <h2>
     John
