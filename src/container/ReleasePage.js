@@ -56,7 +56,9 @@ export default class ReleasePage extends Component {
   }
 
   handlePageForward = () => {
-    this.setState(state => ({ page: state.page + 1 }));
+    this.setState(state => {
+      return ({ page: state.page + 1 });
+    });
   }
 
   render() {
