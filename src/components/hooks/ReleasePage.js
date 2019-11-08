@@ -24,7 +24,6 @@ export default function ReleasePage({ match }) {
 }
 
 ReleasePage.propTypes = {
-  // history: PropTypes.object.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string,

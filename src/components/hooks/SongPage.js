@@ -6,7 +6,6 @@ import useRecordings from '../custom-hooks/useRecordings';
 export default function SongPage({ match }) {
 
   SongPage.propTypes = {
-    // history: PropTypes.object.isRequired,
     match: PropTypes.shape({
       params: PropTypes.shape({
         id: PropTypes.string,
