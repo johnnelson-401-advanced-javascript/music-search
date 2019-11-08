@@ -9,8 +9,6 @@ exports[`SearchPage updates state with an array of artists 1`] = `
   />
   <ArtistList
     artists={Array []}
-    handlePageBackward={[Function]}
-    handlePageForward={[Function]}
   />
 </Fragment>
 `;
