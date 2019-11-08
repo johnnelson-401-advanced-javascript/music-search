@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 
 
 export const fetchArtists = (searchQuery, page) => {

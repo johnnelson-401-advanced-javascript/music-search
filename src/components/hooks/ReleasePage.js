@@ -6,10 +6,8 @@ import useReleases from '../custom-hooks/useReleases';
 
 export default function ReleasePage({ match }) {
 
-  const { handlePageBackward, handlePageForward, page } = usePaging;
-  const { loading, releases } = useReleases;
-
-  useReleases(match.params.id, page);
+  const { handlePageBackward, handlePageForward, page } = usePaging();
+  const { loading, releases } = useReleases(match.params.id, page);
   
   if(loading) return <img src='https://loading.io/spinners/music/lg.music-note-preloader.gif' />;
 
@@ -26,8 +24,8 @@ export default function ReleasePage({ match }) {
 ReleasePage.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.string,
-      artist: PropTypes.string
+      id: PropTypes.string.isRequired,
+      artist: PropTypes.string.isRequired,
     })
   })
 };

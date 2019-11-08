@@ -5,7 +5,9 @@ export default function Lyrics({ title, artist, lyrics }) {
   return (
     <>
       <h3>{`${title} by ${artist}`}</h3>
-      <span>{lyrics}</span>
+      <p>
+        <span>{lyrics}</span>
+      </p>
     </>
   );
 }

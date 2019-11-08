@@ -21,8 +21,8 @@ export default function ArtistList({ artists, handlePageBackward, handlePageForw
   );
 }
 ArtistList.propTypes = {
-  handlePageForward: PropTypes.func.isRequired,
   handlePageBackward: PropTypes.func.isRequired,
+  handlePageForward: PropTypes.func.isRequired,
   artists: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,

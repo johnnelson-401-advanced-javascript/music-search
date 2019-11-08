@@ -6,7 +6,7 @@ import usePaging from '../custom-hooks/usePaging';
 
 export default function SearchPage() {
 
-  const { page, handlePageBackward, handlePageForward } = usePaging;
+  const { page, handlePageBackward, handlePageForward } = usePaging();
   const { artists, loading, searchQuery, handleChange, handleSubmit } = useArtists(page);
   
   if(loading) return <img src='https://loading.io/spinners/music/lg.music-note-preloader.gif' />;
@@ -18,9 +18,10 @@ export default function SearchPage() {
         handleSubmit={handleSubmit}
         searchQuery={searchQuery} />
       <ArtistList
-        artists={artists}
+        handlePageBackward={handlePageBackward}
         handlePageForward={handlePageForward}
-        handlePageBackward={handlePageBackward} />
+        artists={artists}
+      />
     </>
   );
 }
