@@ -20,14 +20,14 @@ export const fetchArtists = (searchQuery, page) => {
     });
 };
 
-export const getRelease = (artistId, page = 0) => {
+export const getRelease = (artistId, page) => {
 
   const url = `http://musicbrainz.org/ws/2/release?artist=${artistId}&fmt=json&limit=25&offset=${page * 25}`;
 
   return fetch(url)
-    .then(res => res.json())
-    .then(({ res }) => {
-      res.releases.map(release => {
+    .then(res => res.json()) 
+    .then(({ releases }) => {
+      return releases.map(release => {
         const coverArt = 'cover-art-archive';
         return {
           title: release.title,

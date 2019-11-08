@@ -5,16 +5,7 @@ import PropTypes from 'prop-types';
 
 export default function ReleasePage({ match }) {
 
-  ReleasePage.propTypes = {
-    // history: PropTypes.object.isRequired,
-    match: PropTypes.shape({
-      params: PropTypes.shape({
-        id: PropTypes.string,
-        artist: PropTypes.string
-      })
-    })
-  };
-
+ 
   const [releases, setReleases] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(0);
@@ -23,7 +14,7 @@ export default function ReleasePage({ match }) {
   const getReleaseAndCoverArt = () => {
     setLoading(true);
     getRelease(match.params.id, page)
-      .then((res) => {
+      .then(res => {
         setReleases(res);
         setLoading(false);
       });
@@ -54,3 +45,14 @@ export default function ReleasePage({ match }) {
     </>
   );
 }
+
+ReleasePage.propTypes = {
+  // history: PropTypes.object.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+      artist: PropTypes.string
+    })
+  })
+};
+

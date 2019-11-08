@@ -11,7 +11,7 @@ import Footer from './Footer/Footer';
 import NotFound from './NotFound/NotFound';
 import ReleasePage from './hooks/ReleasePage';
 import SongPage from './hooks/SongPage';
-import LyricPage from '../container/LyricPage';
+import LyricPage from './hooks/LyricPage';
 
 export default function App() {
 
