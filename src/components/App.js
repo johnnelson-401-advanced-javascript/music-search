@@ -5,7 +5,7 @@ import {
   Switch
 } from 'react-router-dom';
 
-import SearchPage from '../container/SearchPage';
+import SearchPage from './hooks/SearchPage';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import NotFound from './NotFound/NotFound';
