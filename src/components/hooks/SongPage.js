@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import SongList from '../ReleaseDetail/SongList';
-import { getSongsApi } from '../../services/musicBrainzApi';
 import PropTypes from 'prop-types';
+import useRecordings from '../custom-hooks/useRecordings';
 
 export default function SongPage({ match }) {
 
@@ -15,22 +15,7 @@ export default function SongPage({ match }) {
     })
   };
 
-  const [songs, setSongs] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  const getSongs = () => {
-    setLoading(true);
-    getSongsApi(match.params.id)
-      .then(({ recordings }) => {
-        setSongs(recordings.map(recording => recording.title));
-      });
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    getSongs();
-  }, []);
-
+  const { loading, songs } = useRecordings;
 
   if(loading) return <img src='https://loading.io/spinners/music/lg.music-note-preloader.gif' />;
 
