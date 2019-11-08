@@ -18,15 +18,6 @@ describe('SearchPage', () => {
   it.only('updates state with an array of artists', () => {
     const wrapper = shallow(<SearchPage />);
     expect(wrapper).toMatchSnapshot();
-    // return wrapper.instance().getArtists()
-    //   .then(() => {
-    //     expect(wrapper.state('artists')).toEqual([
-    //       {
-    //         disamb: 'test', 
-    //         name: 'Test', 
-    //         id: '5', 
-    //       }
-    //     ]);
-    //   });
+
   });
 });
